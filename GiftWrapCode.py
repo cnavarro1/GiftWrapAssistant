@@ -8,73 +8,77 @@ try:
     tt = turtle.Turtle()
 except:
     tt = turtle.Turtle()
-    
+
 ts = turtle.Screen()
+ts.screensize()
+ts.setup(width = 1.0, height = 1.0)
 run='Y'
 
 while run == 'Y':
-    ##tt.clear()
+    tt.clear()
     tt.showturtle()
+    
     realLength = ts.numinput("Dimensions", "Length")
     realWidth = ts.numinput("Dimensions", "Width")
     realHeight = ts.numinput("Dimensions", "Height")
     
-    length = realLength*20
     width = realWidth*20
+    length = realLength*20
     height = realHeight*20
     
-    angle1 = math.degrees(math.atan(length/width))
-    angle3 = math.degrees(math.atan((width/length)*1.5))
-    angle2 = 180 - (2*math.degrees(math.atan(width/length)))
-    angle4 = 180 - (2*math.degrees(math.atan((length/width)*(2/3))))
+    angle1 = math.degrees(math.atan(width/length))
+    angle3 = math.degrees(math.atan((length/width)*1.5))
+    angle2 = 180 - (2*math.degrees(math.atan(length/width)))
+    angle4 = 180 - (2*math.degrees(math.atan((width/length)*(2/3))))
     
     flap1 = height
     
-    triangles = (((width/2)**2)+((length/2)**2))**0.5
+    triangles = (((length/2)**2)+((width/2)**2))**0.5
     
-    triangles2 = (((width*3/4)**2)+((length/2)**2))**0.5
+    triangles2 = (((length*3/4)**2)+((width/2)**2))**0.5
     
     #ts.reset()
     #ts.setworldcoordinates(-120, -180, 420, 270)
     
-    tt.speed(5)
+    tt.speed(10)
+    
     
     #Center drawing
     tt.color('white')
-    tt.goto(-length/2, -width/2)
+    tt.goto(-width/2, -length/2)
     tt.color('black')
     
     ##Center Box
-    tt.forward(length)
-    tt.left(90)
     tt.forward(width)
     tt.left(90)
     tt.forward(length)
     tt.left(90)
     tt.forward(width)
+    tt.left(90)
+    tt.forward(length)
     
     ##Height boxes
     tt.color('red')
     tt.forward(height)
     tt.color('black')
     tt.left(90)
-    tt.forward(length)
-    tt.color('red')
-    tt.left(90)
-    tt.forward(height)
-    tt.color('black')
-    tt.right(90)
-    tt.forward(height)
-    tt.left(90)
     tt.forward(width)
+    tt.color('red')
     tt.left(90)
     tt.forward(height)
-    tt.right(90)
-    tt.color('red')
-    tt.forward(height)
     tt.color('black')
+    tt.right(90)
+    tt.forward(height)
     tt.left(90)
     tt.forward(length)
+    tt.left(90)
+    tt.forward(height)
+    tt.right(90)
+    tt.color('red')
+    tt.forward(height)
+    tt.color('black')
+    tt.left(90)
+    tt.forward(width)
     tt.color('red')
     tt.left(90)
     tt.forward(height)
@@ -82,7 +86,7 @@ while run == 'Y':
     tt.right(90)
     tt.forward(height)
     tt.left(90)
-    tt.forward(width)
+    tt.forward(length)
     tt.left(90)
     tt.forward(height)
     
