@@ -54,7 +54,7 @@ while run == 'Y' or run == 'y':
     x = height + width
     
     #Set Speed
-    tt.speed(5)
+    tt.speed(10)
     
     if x <= 940 and y <= 495:
         ##BEGIN DRAWING
