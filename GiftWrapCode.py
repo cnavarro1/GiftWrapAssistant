@@ -16,7 +16,7 @@ units = ts.textinput("Units", "Inches or Centimers?: I or C")
 
 #Calibration
 calibrate = ts.textinput("Calibration", "Recalibrate?: Y or N")      
-
+convert = 1
 if calibrate == 'Y' or calibrate == 'y':
     tt.clear()
     tt.showturtle()
@@ -50,11 +50,17 @@ while run != 'N' and run != 'n':
         realWidth = realWidth/2.54
         realHeight = realHeight/2.54
     
-    #Convert inches to pixels
-    width = realWidth*convert
-    length = realLength*convert
-    height = realHeight*convert
-    
+    if calibrate == 'Y' or calibrate == 'y':
+        #Convert inches to pixels
+        width = realWidth*convert
+        length = realLength*convert
+        height = realHeight*convert
+    else:
+        #Convert inches to pixels
+        realWidth = realWidth*35.5555
+        realLength = realLength*35.5555
+        realHeight = realHeight*35.5555
+        
     #Calculate angles needed to turn properly
     angle1 = math.degrees(math.atan(width/length))
     angle3 = math.degrees(math.atan((length/width)*1.5))
